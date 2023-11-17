@@ -27,7 +27,7 @@ public class FileReader {
             }
             stream.close();
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
 
 
@@ -35,7 +35,6 @@ public class FileReader {
         String[] splitStrings = string.split(": ");
         name = splitStrings[1];
         age = Integer.parseInt(splitStrings[2].split("")[0]);
-        phone = Long.parseLong(splitStrings[4].split("")[0]);
         String[] hehe = name.split("[^\\w']+");
         String[] hehe1 = hehe[0].split("Age");
         String hehegirl = hehe1[0];
@@ -45,7 +44,7 @@ public class FileReader {
                 hehegirl,
                 age,
                 hehegirl,
-                phone
+                Long.parseLong(splitStrings[4].split("")[0])
         );
         return profile;
 
