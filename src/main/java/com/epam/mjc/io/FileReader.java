@@ -1,9 +1,6 @@
 package com.epam.mjc.io;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,10 +14,10 @@ public class FileReader {
         String name = null;
         int age = 4;
         String email = null;
-        long phone = 1l;
+
         StringBuilder profileData = new StringBuilder();
         try {
-            FileInputStream stream = new FileInputStream(file);
+            InputStream stream = new FileInputStream(file);
             int i;
             while ((i = stream.read()) != -1) {
                 profileData.append((char) i);
