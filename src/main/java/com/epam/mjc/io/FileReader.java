@@ -15,7 +15,7 @@ public class FileReader {
     public Profile getDataFromFile(File file) {
 
         String name = null;
-        int age = 1;
+        int age = 4;
         String email = null;
         long phone = 1l;
         StringBuilder profileData = new StringBuilder();
@@ -34,7 +34,7 @@ public class FileReader {
         String string = profileData.toString();
         String[] splitStrings = string.split(": ");
         name = splitStrings[1];
-        age = Integer.parseInt(splitStrings[2].split("")[0]);
+        age = Integer.parseInt(splitStrings[2].replaceAll("[^0-9,]",""));
         String[] hehe = name.split("[^\\w']+");
         String[] hehe1 = hehe[0].split("Age");
         String hehegirl = hehe1[0];
@@ -44,7 +44,7 @@ public class FileReader {
                 hehegirl,
                 age,
                 hehegirl,
-                Long.parseLong(splitStrings[4].split("")[0])
+                (long) age
         );
         return profile;
 
